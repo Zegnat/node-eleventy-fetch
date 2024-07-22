@@ -12,13 +12,16 @@
 	"main": "eleventy-fetch.js",
 	"scripts": {
 		"test": "ava",
+		"test:types": "tsd",
 		"sample": "node sample",
 		"format": "prettier . --write"
 	},
 	"files": [
 		"src/",
-		"eleventy-fetch.js"
+		"eleventy-fetch.js",
+		"eleventy-fetch.d.ts"
 	],
+	"types": "eleventy-fetch.d.ts",
 	"engines": {
 		"node": ">=18"
 	},
@@ -42,9 +45,11 @@
 	"homepage": "https://github.com/11ty/eleventy-fetch#readme",
 	"devDependencies": {
 		"ava": "^5.2.0",
-		"prettier": "^3.2.5"
+		"prettier": "^3.2.5",
+		"tsd": "^0.31.1"
 	},
 	"dependencies": {
+		"@types/node": "^18.19.41",
 		"debug": "^4.3.4",
 		"flat-cache": "^3.0.4",
 		"p-queue": "^6.6.2"
