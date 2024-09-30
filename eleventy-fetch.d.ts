@@ -16,12 +16,19 @@ type EleventyFetchOptions<T extends FetchType> = {
 	formatUrlForDisplay?: (url: string) => string;
 };
 
+type AssetCacheOptions = Partial<{
+	hashLength: number;
+	verbose: boolean;
+}>;
+
 interface AssetCacheConstructor {
 	new (
-		uniqueKey: string,
+		uniqueKey: any, // Should probably be string, but BC requires a wider type.
 		cacheDirectory: string,
-		options: EleventyFetchOptions<"text">,
+		options: AssetCacheOptions,
 	): AssetCacheInterface;
+
+	getHash(key: any | ReadonlyArray<any>, hashLength: number): string;
 }
 interface AssetCacheInterface {
 	log(message: string): void;
